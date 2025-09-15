@@ -82,9 +82,47 @@ The repository is organized into the following main directories:
     ```
     The frontend application will be available at `http://localhost:3000`.
 
+## AI Features
+
+This project uses the OpenAI API to provide AI-powered features. To enable these features, you must provide an OpenAI API key.
+
+1.  Create a `.env` file in the `EcoHubVerse_Complete/backend` directory.
+2.  Add your API key to the `.env` file like this:
+    ```
+    OPENAI_API_KEY=your-api-key-here
+    ```
+
+### Content Summarization
+
+When a new post is created, the backend will automatically generate a one-sentence summary of the post content. This summary is stored in the `summary` column of the `posts` table.
+
+### AI Chatbot
+
+The frontend includes a chat interface that connects to a helpful AI assistant.
+
 ## API Documentation
 
-The backend provides the following API endpoints for managing posts.
+The backend provides the following API endpoints.
+
+### Chat
+
+*   **Endpoint:** `/api/chat`
+*   **Method:** `POST`
+*   **Description:** Sends a message to the AI chatbot and receives a response.
+*   **Request Body:**
+    ```json
+    {
+      "message": "Hello, who are you?"
+    }
+    ```
+*   **Response:**
+    ```json
+    {
+      "reply": "I am a helpful assistant for the EcoHubVerse platform."
+    }
+    ```
+
+### Posts
 
 ### Get all posts
 

@@ -10,6 +10,7 @@ create table posts (
   title text,
   content text,
   author text,
+  summary text,
   created_at timestamp default now()
 );
 
