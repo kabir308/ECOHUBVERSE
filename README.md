@@ -82,47 +82,9 @@ The repository is organized into the following main directories:
     ```
     The frontend application will be available at `http://localhost:3000`.
 
-## AI Features
-
-This project uses the OpenAI API to provide AI-powered features. To enable these features, you must provide an OpenAI API key.
-
-1.  Create a `.env` file in the `EcoHubVerse_Complete/backend` directory.
-2.  Add your API key to the `.env` file like this:
-    ```
-    OPENAI_API_KEY=your-api-key-here
-    ```
-
-### Content Summarization
-
-When a new post is created, the backend will automatically generate a one-sentence summary of the post content. This summary is stored in the `summary` column of the `posts` table.
-
-### AI Chatbot
-
-The frontend includes a chat interface that connects to a helpful AI assistant.
-
 ## API Documentation
 
-The backend provides the following API endpoints.
-
-### Chat
-
-*   **Endpoint:** `/api/chat`
-*   **Method:** `POST`
-*   **Description:** Sends a message to the AI chatbot and receives a response.
-*   **Request Body:**
-    ```json
-    {
-      "message": "Hello, who are you?"
-    }
-    ```
-*   **Response:**
-    ```json
-    {
-      "reply": "I am a helpful assistant for the EcoHubVerse platform."
-    }
-    ```
-
-### Posts
+The backend provides the following API endpoints for managing posts.
 
 ### Get all posts
 
@@ -237,3 +199,21 @@ Stores information about products in the e-commerce section.
 | `name`     | `text`      | The name of the product.      |
 | `price`    | `numeric`   | The price of the product.     |
 | `created_at`| `timestamp` | Timestamp of product creation.|
+
+## Deployment
+
+This project is configured for easy deployment to [Vercel](https://vercel.com).
+
+### Connecting to Vercel
+
+1.  Create a new project on Vercel and connect it to your Git repository.
+2.  Vercel will automatically detect the `vercel.json` file and configure the project accordingly.
+3.  No special configuration is needed in the Vercel dashboard, as all settings are defined in `vercel.json`.
+
+### Environment Variables
+
+For the AI features to work, you must set the `OPENAI_API_KEY` environment variable in your Vercel project settings.
+
+1.  In your Vercel project dashboard, go to the "Settings" tab.
+2.  Click on "Environment Variables" in the left sidebar.
+3.  Add a new variable with the name `OPENAI_API_KEY` and your OpenAI API key as the value.
