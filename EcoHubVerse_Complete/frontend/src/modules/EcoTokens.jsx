@@ -11,6 +11,9 @@ const EcoTokens = () => {
     });
     const [transactionResult, setTransactionResult] = useState(null);
 
+    // TODO: Replace with actual user authentication context
+    const userId = 'user123'; // Demo user ID
+
     useEffect(() => {
         fetchBalance();
         fetchNFTs();
@@ -18,7 +21,7 @@ const EcoTokens = () => {
 
     const fetchBalance = async () => {
         try {
-            const response = await fetch('/api/ecotokens/balance/user123');
+            const response = await fetch(`/api/ecotokens/balance/${userId}`);
             const data = await response.json();
             setBalance(data);
         } catch (error) {
@@ -30,7 +33,7 @@ const EcoTokens = () => {
 
     const fetchNFTs = async () => {
         try {
-            const response = await fetch('/api/nfts/green?userId=user123');
+            const response = await fetch(`/api/nfts/green?userId=${userId}`);
             const data = await response.json();
             setNfts(data.nfts || []);
         } catch (error) {
@@ -45,7 +48,7 @@ const EcoTokens = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    fromUser: 'user123',
+                    fromUser: userId,
                     toUser: transactionForm.toUser,
                     amount: parseFloat(transactionForm.amount),
                     type: transactionForm.type

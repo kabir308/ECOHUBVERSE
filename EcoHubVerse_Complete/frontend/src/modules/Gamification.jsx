@@ -5,13 +5,16 @@ const Gamification = () => {
     const [loading, setLoading] = useState(true);
     const [actionFeedback, setActionFeedback] = useState(null);
 
+    // TODO: Replace with actual user authentication context
+    const userId = 'user123'; // Demo user ID
+
     useEffect(() => {
         fetchGamificationProfile();
     }, []);
 
     const fetchGamificationProfile = async () => {
         try {
-            const response = await fetch('/api/gamification/profile/user123');
+            const response = await fetch(`/api/gamification/profile/${userId}`);
             const data = await response.json();
             setProfile(data);
         } catch (error) {
@@ -27,7 +30,7 @@ const Gamification = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    userId: 'user123',
+                    userId,
                     action,
                     metadata: { timestamp: new Date().toISOString() }
                 })

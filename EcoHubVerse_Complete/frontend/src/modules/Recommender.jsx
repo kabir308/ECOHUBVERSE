@@ -9,6 +9,9 @@ const Recommender = () => {
     const [selectedType, setSelectedType] = useState('products');
     const [loading, setLoading] = useState(false);
 
+    // TODO: Replace with actual user authentication context
+    const userId = 'user123'; // Demo user ID
+
     useEffect(() => {
         fetchRecommendations(selectedType);
     }, [selectedType]);
@@ -16,7 +19,7 @@ const Recommender = () => {
     const fetchRecommendations = async (type) => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/recommendations?type=${type}&userId=user123`);
+            const response = await fetch(`/api/recommendations?type=${type}&userId=${userId}`);
             const data = await response.json();
             setRecommendations(prev => ({
                 ...prev,
