@@ -2,6 +2,32 @@
 
 EcoHubVerse is a modern, full-stack web application designed to be a central hub for eco-conscious users. It provides a platform for sharing information, discussing topics, and accessing eco-friendly products and services. The project is built with a microservices-oriented architecture, with a separate frontend and backend.
 
+## ✨ New Features (v2.0)
+
+### 🎯 AI-Powered Recommender System
+Get personalized eco-friendly recommendations for:
+- **Products**: Sustainable items with eco-scores
+- **Articles**: Environmental content and guides
+- **Courses**: E-learning on sustainability
+
+### 💎 Green NFTs & EcoTokens
+- **EcoTokens (ECO)**: Carbon-neutral digital currency
+- **Green NFTs**: Collectible environmental achievement certificates
+- **Carbon Offset Tracking**: Every transaction offsets CO₂ emissions
+- **Tiered Levels**: Bronze, Silver, Gold, Platinum
+
+### 🎮 Gamification System
+- **Points & Levels**: Earn rewards for eco-friendly actions
+- **Badges**: Unlock achievements (Master Recycler, Green Commuter, etc.)
+- **Leaderboard**: Compete with the community
+- **Carbon Tracking**: Monitor your environmental impact
+
+### 🤖 AI Community Moderator
+- **Content Safety**: Real-time inappropriate content detection
+- **Sentiment Analysis**: Understand community mood
+- **Smart Summaries**: AI-generated discussion insights
+- **Auto-Categorization**: Organize content by eco-topics
+
 ## Features
 
 The platform is envisioned to have the following features:
@@ -18,6 +44,28 @@ The platform is envisioned to have the following features:
 *   **Frontend:** React (bootstrapped with `create-react-app`)
 *   **Backend:** Node.js with Express
 *   **Database:** Supabase (PostgreSQL)
+*   **Styling:** Tailwind CSS
+*   **API:** RESTful endpoints
+
+## New API Endpoints
+
+### Recommender System
+- `GET /api/recommendations?type={products|articles|courses}&userId={userId}`
+
+### EcoTokens & NFTs
+- `GET /api/ecotokens/balance/:userId`
+- `POST /api/ecotokens/transaction`
+- `GET /api/nfts/green?userId={userId}`
+
+### Gamification
+- `GET /api/gamification/profile/:userId`
+- `POST /api/gamification/action`
+
+### AI Moderation
+- `POST /api/moderation/check`
+- `POST /api/moderation/summarize`
+
+See `/docs/NEW_FEATURES.md` for complete documentation.
 
 ## Project Structure
 
